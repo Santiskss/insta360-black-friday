@@ -1,0 +1,344 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Insta360 Black Friday · Santi</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@800;900&family=Poppins:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+/* VOICE occasion: Santi's Black Friday buying guide, punchy but trustworthy
+   IDEA his own PDF guide turned into a site: black pages, yellow highlighter, product cards
+   PICTURE the five product cards from the guide; the 360° ring quiz picks one
+   COLOUR near-black #0e0e10, panels #1a1a1d, yellow #ffe000, white ink (one palette both themes)
+   TYPE Montserrat 900 display + Poppins text
+   LAYOUT hero title left + card stack right; quiz; five product sheets; table; extras; phone stacks */
+:root{color-scheme:dark;--bg:#0e0e10;--pan:#1a1a1d;--pan2:#232327;--line:#2e2e33;--ink:#ffffff;--mut:#a9a9b2;--y:#ffe000;--yk:#111}
+*{box-sizing:border-box;min-width:0}
+html{scroll-behavior:smooth;scroll-padding-top:72px}
+@media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}*{transition:none!important;animation:none!important}}
+body{margin:0;background:var(--bg);color:var(--ink);font:16px/1.55 Poppins,system-ui,sans-serif;overflow-x:clip}
+img{max-width:100%;display:block}
+a{color:inherit}
+.in{max-width:1180px;margin:0 auto;padding:0 max(4vw,16px)}
+.band{padding:clamp(40px,6vw,88px) 0}
+.d{font-family:Montserrat,Poppins,sans-serif;font-weight:900;letter-spacing:-.02em;line-height:1.02}
+.y{color:var(--y)}
+.eb{font:800 13px Montserrat,sans-serif;color:var(--y);letter-spacing:.06em;margin:0 0 12px}
+.pill{background:var(--y);color:var(--yk);font:800 12px Montserrat,sans-serif;letter-spacing:.06em;padding:6px 12px;border-radius:999px;white-space:nowrap}
+/* top bar */
+.bar{position:sticky;top:0;z-index:5;background:rgba(14,14,16,.92);backdrop-filter:blur(8px);border-bottom:1px solid var(--line)}
+.bar .in{display:flex;align-items:center;gap:18px;min-height:60px;flex-wrap:wrap}
+.brand{font:800 16px Montserrat,sans-serif;white-space:nowrap}
+.brand span{color:var(--mut);font:500 14px Poppins,sans-serif}
+.nav{display:flex;gap:4px;margin-left:auto;flex-wrap:wrap}
+.nav a{text-decoration:none;font-size:14px;padding:8px 10px;border-radius:8px;color:var(--mut)}
+.nav a:hover{color:var(--ink);background:var(--pan)}
+/* hero */
+.hero .in{display:grid;grid-template-columns:minmax(0,1.05fr) minmax(0,1fr);gap:clamp(24px,4vw,56px);align-items:center}
+h1{font-size:clamp(44px,7.2vw,88px);margin:0 0 18px}
+.lead{font-size:18px;color:#d8d8de;max-width:34ch;margin:0 0 26px}
+.ctas{display:flex;gap:12px;flex-wrap:wrap;margin-bottom:26px}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;min-height:50px;padding:0 22px;border-radius:12px;font:600 16px Poppins,sans-serif;text-decoration:none;border:2px solid transparent;cursor:pointer}
+.b1{background:var(--y);color:var(--yk)}
+.b1:hover{filter:brightness(1.07)}
+.b2{background:none;border-color:#3a3a40;color:var(--ink)}
+.b2:hover{border-color:var(--ink)}
+.btn:focus-visible,button:focus-visible,a:focus-visible{outline:3px solid var(--y);outline-offset:3px}
+.code{display:flex;align-items:center;gap:12px;flex-wrap:wrap;background:var(--pan);border:1.5px dashed var(--y);border-radius:14px;padding:12px 14px}
+.code small{color:var(--mut);font-size:13px;display:block}
+.code b{font:900 22px Montserrat,sans-serif;letter-spacing:.04em;white-space:nowrap}
+.code .grow{flex:1}
+.cp{background:var(--ink);color:var(--yk);border:0;border-radius:10px;min-height:44px;padding:0 16px;font:600 15px Poppins,sans-serif;cursor:pointer}
+.save{margin-top:18px;font:800 18px Montserrat,sans-serif}
+.stack{position:relative;aspect-ratio:1/1.06;margin-bottom:12px}
+.stack img{position:absolute;width:62%;border-radius:16px;box-shadow:0 16px 30px rgba(0,0,0,.45)}
+.stack img:nth-child(1){left:0;top:4%;transform:rotate(-9deg)}
+.stack img:nth-child(2){left:19%;top:0;transform:rotate(-3deg)}
+.stack img:nth-child(3){left:38%;top:6%;transform:rotate(4deg);z-index:2}
+.stack img:nth-child(4){left:10%;top:42%;transform:rotate(3deg);z-index:3}
+.stack img:nth-child(5){left:36%;top:44%;transform:rotate(-5deg);z-index:4}
+/* quiz */
+.quiz{background:var(--pan);border-radius:24px;padding:clamp(20px,4vw,44px);display:grid;grid-template-columns:150px minmax(0,1fr);gap:clamp(18px,3vw,40px);align-items:start}
+.ring{width:150px;height:150px}
+.ring text{font:900 30px Montserrat,sans-serif;fill:var(--ink)}
+.ring .s{font:500 12px Poppins,sans-serif;fill:var(--mut)}
+#arc{transition:stroke-dashoffset .45s}
+.qn{color:var(--mut);font-size:14px;margin:0 0 6px}
+.qt{font-size:clamp(26px,3.6vw,38px);margin:0 0 18px}
+.opts{display:grid;gap:10px}
+.opt{display:grid;grid-template-columns:48px minmax(0,1fr);gap:14px;align-items:center;text-align:left;background:var(--pan2);border:2px solid transparent;border-radius:16px;padding:14px 16px;color:var(--ink);cursor:pointer;font:500 15px/1.45 Poppins,sans-serif;transition:border-color .15s}
+.opt:hover{border-color:var(--y)}
+.opt .l{width:48px;height:48px;border-radius:12px;background:var(--y);color:var(--yk);display:grid;place-items:center;font:900 22px Montserrat,sans-serif}
+.opt strong{display:block;font:800 17px Montserrat,sans-serif}
+.opt small{color:var(--mut);font-size:14px}
+.qnav{display:flex;justify-content:space-between;margin-top:14px;gap:12px;flex-wrap:wrap}
+.lnk{background:none;border:0;color:var(--mut);font:500 15px Poppins,sans-serif;cursor:pointer;min-height:44px;text-decoration:underline;text-underline-offset:3px;padding:0}
+.res{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1.1fr);gap:clamp(16px,3vw,32px);align-items:center}
+.res img{border-radius:16px}
+.res .price{font-size:clamp(44px,6vw,64px)}
+/* product sheets */
+.sheet{border-top:1px solid var(--line)}
+.sh{display:grid;grid-template-columns:minmax(0,1.1fr) minmax(0,.9fr);gap:clamp(18px,3vw,40px);align-items:center;margin:18px 0 22px}
+.sh img{border-radius:18px;width:100%}
+.nm small{display:block;color:var(--mut);font:500 18px Poppins,sans-serif;margin-bottom:2px}
+.nm{font-size:clamp(44px,6.4vw,76px);margin:0 0 8px}
+.tl{color:#d8d8de;margin:0 0 4px;font-size:17px}
+.tag{display:inline-block;background:var(--ink);color:var(--yk);font:800 12px Montserrat,sans-serif;letter-spacing:.05em;padding:5px 12px;border-radius:999px;margin-bottom:12px}
+.pk{color:var(--mut);font-size:15px;margin:0}
+.pl{font:800 12px Montserrat,sans-serif;color:var(--y);letter-spacing:.06em;margin:8px 0 0}
+.price{font:900 clamp(60px,8vw,96px)/1 Montserrat,sans-serif;color:var(--y);white-space:nowrap}
+.price sup{font-size:.45em;vertical-align:.7em}
+.old{color:var(--mut);text-decoration:line-through;font-size:18px;margin:4px 0 10px;white-space:nowrap}
+.ah{display:inline-block;background:var(--y);color:var(--yk);font:800 15px Montserrat,sans-serif;padding:6px 12px;border-radius:8px;white-space:nowrap}
+.specs{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:10px;margin-bottom:10px}
+.sp{background:var(--pan);border-radius:14px;padding:14px}
+.sp b{display:block;font:900 clamp(24px,3vw,32px)/1.1 Montserrat,sans-serif;margin-bottom:4px}
+.sp span{color:var(--mut);font-size:14px;line-height:1.35;display:block}
+.pick{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:10px}
+.pick div{border-radius:14px;padding:16px}
+.pick h4{font:800 13px Montserrat,sans-serif;letter-spacing:.06em;margin:0 0 6px}
+.pick p{margin:0;font-size:15px}
+.si{background:var(--y);color:var(--yk)}
+.no{background:var(--pan)}
+.no h4{color:var(--mut)}
+.buy{display:flex;gap:12px;flex-wrap:wrap;margin-top:16px;align-items:center}
+.buy .code{flex:1;min-width:260px}
+/* table */
+.tw{overflow-x:auto;background:var(--pan);border-radius:18px}
+table{width:100%;border-collapse:collapse;font-size:15px}
+th{font:800 12px Montserrat,sans-serif;letter-spacing:.06em;color:var(--mut);text-align:left;padding:14px 16px}
+td{padding:16px;border-top:1px solid var(--line);vertical-align:middle}
+td.n{font:800 17px Montserrat,sans-serif;white-space:nowrap}
+td.n a{text-decoration:none}
+td.n a:hover{color:var(--y)}
+.chip{background:var(--pan2);border:1px solid var(--line);font-size:13px;padding:3px 10px;border-radius:999px;white-space:nowrap}
+td.p{text-align:right;white-space:nowrap}
+td.p b{color:var(--y);font:900 20px Montserrat,sans-serif;display:block}
+td.p s{color:var(--mut);font-size:13px}
+td.w{white-space:nowrap;text-align:right}
+.fn{color:var(--mut);font-size:13px;margin:10px 0 0}
+.tip{background:var(--y);color:var(--yk);border-radius:20px;padding:clamp(20px,3vw,32px);margin-top:22px}
+.tip h3{font-size:clamp(24px,3vw,32px);margin:0 0 8px}
+.tip p{margin:0 0 6px}
+.tip mark{background:var(--yk);color:var(--y);padding:1px 8px;border-radius:6px;font-weight:600}
+/* extras */
+.ex{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px}
+.ex div{background:var(--pan);border-radius:18px;padding:20px;display:grid;grid-template-columns:auto minmax(0,1fr);gap:16px;align-items:start}
+.ex b{font:900 clamp(30px,4vw,42px)/1 Montserrat,sans-serif;color:var(--y);white-space:nowrap}
+.ex h4{margin:0 0 2px;font:800 17px Montserrat,sans-serif}
+.ex p{margin:0;color:var(--mut);font-size:15px}
+.final{background:var(--y);color:var(--yk);border-radius:24px;padding:clamp(24px,4vw,44px);margin-top:22px;display:grid;grid-template-columns:minmax(0,1.3fr) minmax(0,1fr);gap:24px;align-items:center}
+.final h3{font-size:clamp(28px,4vw,44px);margin:0 0 10px}
+.final p{margin:0 0 8px}
+.final .code{background:#fff;border-color:var(--yk)}
+.final .code small{color:#555}
+.final .cp{background:var(--yk);color:var(--y)}
+h2{font-size:clamp(34px,5vw,56px);margin:0 0 22px}
+footer{border-top:1px solid var(--line);color:var(--mut);font-size:13px;padding:26px 0 40px}
+footer p{margin:0 0 6px;max-width:80ch}
+.toast{min-height:20px;font-size:13px;color:var(--mut);margin:6px 0 0}
+@media(max-width:860px){.hero .in{grid-template-columns:minmax(0,1fr)}.stack{max-width:520px;width:100%;margin:0 auto}.sh{grid-template-columns:minmax(0,1fr)}.specs{grid-template-columns:repeat(2,minmax(0,1fr))}.final{grid-template-columns:minmax(0,1fr)}}
+@media(max-width:640px){.nav{display:none}.quiz{grid-template-columns:minmax(0,1fr)}.ring{width:96px;height:96px}.res{grid-template-columns:minmax(0,1fr)}.pick{grid-template-columns:minmax(0,1fr)}.ex{grid-template-columns:minmax(0,1fr)}table{font-size:13px}th,td{padding:10px 8px}.hideS{display:none}}
+</style>
+</head>
+<body>
+
+<header class="bar"><div class="in">
+  <div class="brand">Insta360 <span class="y">×</span> <span>@santi_skss</span></div>
+  <nav class="nav" aria-label="Secciones"><a href="#test">Test</a><a href="#camaras">Las 5</a><a href="#comparativa">Comparativa</a><a href="#extras">Extras</a></nav>
+  <span class="pill">BLACK FRIDAY</span>
+</div></header>
+
+<section class="band hero"><div class="in">
+  <div>
+    <p class="eb">GUÍA RÁPIDA · BLACK FRIDAY 2026</p>
+    <h1 class="d">¿Qué <span class="y">Insta360</span> es para ti?</h1>
+    <p class="lead">5 cámaras, 3 tipos de persona y los precios de Black Friday. Encuentra la tuya en 1 minuto.</p>
+    <div class="ctas"><a class="btn b1" href="#test">Hacer el test</a><a class="btn b2" href="#camaras">Ver las 5 cámaras</a></div>
+    <div class="code"><div class="grow"><small>Mi código para el regalo</small><b>INRSGBWA0BU</b></div><button class="cp" type="button">Copiar</button></div>
+    <p class="toast" aria-live="polite"></p>
+    <p class="save">Ahorra hasta <span class="y">281 €</span> · por @santi_skss</p>
+  </div>
+  <div class="stack" id="stack" aria-hidden="true"></div>
+</div></section>
+
+<section class="band" id="test" style="padding-top:0"><div class="in">
+  <p class="eb">PASO 1 · EL TEST</p>
+  <h2 class="d">¿Qué tipo de creador <span class="y">eres?</span></h2>
+  <div class="quiz">
+    <svg class="ring" viewBox="0 0 150 150" role="img" aria-label="Progreso del test">
+      <circle cx="75" cy="75" r="64" fill="none" stroke="#2e2e33" stroke-width="12"/>
+      <circle id="arc" cx="75" cy="75" r="64" fill="none" stroke="#ffe000" stroke-width="12" stroke-linecap="round" transform="rotate(-90 75 75)"/>
+      <text id="deg" x="75" y="82" text-anchor="middle">0°</text>
+      <text class="s" x="75" y="104" text-anchor="middle">de 360°</text>
+    </svg>
+    <div id="q" aria-live="polite"></div>
+  </div>
+</div></section>
+
+<section class="band" id="camaras" style="padding-top:0"><div class="in">
+  <p class="eb">LAS FICHAS</p>
+  <h2 class="d">Las 5, <span class="y">una a una</span></h2>
+  <div id="sheets"></div>
+</div></section>
+
+<section class="band" id="comparativa" style="padding-top:0"><div class="in">
+  <p class="eb">DE UN VISTAZO</p>
+  <h2 class="d">Las 5, <span class="y">cara a cara</span></h2>
+  <div class="tw"><table>
+    <thead><tr><th>Cámara</th><th>Tipo</th><th class="hideS">Lo mejor</th><th style="text-align:right">Agua*</th><th style="text-align:right">Black Friday</th></tr></thead>
+    <tbody id="tb"></tbody>
+  </table></div>
+  <p class="fn">* Profundidad sumergible sin carcasa. Precios de la tienda oficial Insta360 España en Black Friday 2026, en el paquete indicado en cada ficha.</p>
+  <div class="tip">
+    <h3 class="d">Mi consejo, rápido</h3>
+    <p>Si no lo tienes claro y viajas: <mark>X5</mark>. Es la que más juego da y a 519 € está en su mejor precio.</p>
+    <p>Si haces deporte o te metes al agua: <mark>Ace Pro 2</mark>. Es la que llevo yo.</p>
+  </div>
+</div></section>
+
+<section class="band" id="extras" style="padding-top:0"><div class="in">
+  <p class="eb">ANTES DE COMPRAR</p>
+  <h2 class="d">Extras del <span class="y">Black Friday</span></h2>
+  <div class="ex">
+    <div><b>3</b><span><h4>pagos sin intereses</h4><p>con PayPal o Klarna al pagar.</p></span></div>
+    <div><b>15</b><span><h4>días para devolverla</h4><p>sin dar explicaciones.</p></span></div>
+    <div><b>143 €</b><span><h4>de descuento con Trade-In</h4><p>entregando tu cámara actual (hasta esa cifra).</p></span></div>
+    <div><b>+</b><span><h4>Regalos limitados</h4><p>hasta agotar existencias: si quieres el regalo, no lo dejes para el último día.</p></span></div>
+  </div>
+  <div class="final">
+    <div>
+      <h3 class="d">¿Ya sabes cuál es la tuya?</h3>
+      <p>Cómprala desde mi enlace. A ti te cuesta lo mismo y a mí me ayudas a seguir creando contenido.</p>
+      <p>¿Dudas? Escríbeme por DM a <b>@santi_skss</b> y te digo cuál pillaría yo.</p>
+    </div>
+    <div>
+      <div class="code"><div class="grow"><small>Mi código</small><b>INRSGBWA0BU</b></div><button class="cp" type="button">Copiar</button></div>
+      <p class="toast" aria-live="polite"></p>
+      <a class="btn b2" style="border-color:#111;color:#111;width:100%" href="#test">Hacer el test</a>
+    </div>
+  </div>
+</div></section>
+
+<footer><div class="in">
+  <p>Precios y regalos según la campaña oficial de Insta360 España (noviembre 2026). Pueden cambiar o agotarse: comprueba el precio final en la web antes de pagar.</p>
+  <p>Los enlaces y el código son de afiliado: si compras con ellos, me llevo una comisión y a ti no te cuesta más. Guía hecha por @santi_skss.</p>
+</div></footer>
+
+<script>
+{
+const CODE = "INRSGBWA0BU";
+const link = s => `https://store.insta360.com/es/product/${s}?utm_term=${CODE}`;
+
+const CAMS = [
+ {id:"ace-pro", slug:"ace-pro", n:"Ace Pro", lab:"01 · ACCIÓN · EL QUE EMPIEZA", type:"Acción", tl:"La puerta de entrada a las cámaras de acción, a precio de risa.", tag:"CHOLLAZO", pk:"Paquete estándar", p:199, old:"479,99 €", ah:281, best:"4K120 · Leica", water:"10 m",
+  sp:[["4K","a 120 fps para cámara lenta"],["Leica","óptica co-diseñada"],["10 m","sumergible sin carcasa"],["2,4\"","pantalla abatible para selfies"]],
+  si:"Quieres tu primera cámara de acción para viajes, playa, bici o moto sin gastarte mucho.", no:"Grabas mucho de noche o quieres 8K → mira la Ace Pro 2."},
+ {id:"ace-pro-2", slug:"ace-pro-2", n:"Ace Pro 2", lab:"02 · ACCIÓN · EL AVENTURERO", type:"Acción", tl:"La cámara de acción más completa: imagen top, también de noche.", tag:"LA QUE LLEVO YO", pk:"Paquete doble batería", p:319, old:"469,99 €", ah:151, best:"8K · sensor 1/1,3\"", water:"12 m",
+  sp:[["8K","vídeo a 30 fps · 4K a 60 fps HDR"],["1/1,3\"","sensor grande, muy buena en poca luz"],["12 m","sumergible sin carcasa"],["2,5\"","pantalla abatible + audio sin viento"]],
+  si:"Haces deporte, buceas, vas en moto o viajas y quieres la mejor calidad en una cámara pequeña.", no:"Quieres grabar en todas direcciones a la vez → mira la X5."},
+ {id:"x5", slug:"x5", n:"X5", lab:"03 · 360° · EL VIAJERO", type:"360°", tl:"Grabas todo a tu alrededor y eliges el plano después. Magia.", tag:"MI FAVORITA", pk:"Paquete de viaje", p:519, old:"679 €", ah:160, best:"8K 360 · lentes cambiables", water:"15 m",
+  sp:[["8K","vídeo 360° a 30 fps"],["5,7K","a 60 fps con Active HDR"],["Lentes","reemplazables y resistentes"],["Palo","invisible: parece un dron"]],
+  si:"Viajas solo o en pareja y quieres grabarte sin que nadie sujete la cámara, con tomas tipo dron.", no:"Solo quieres POV de deporte sencillo → la Ace Pro 2 te sobra."},
+ {id:"x6", slug:"x6", n:"X6", lab:"04 · 360° · EL QUE QUIERE LO ÚLTIMO", type:"360°", tl:"La nueva insignia 360: más pequeña, mejor de noche y edita por ti.", tag:"NUEVA", pk:"Paquete estándar", p:629, old:"699 €", ah:70, best:"8K50 360 · IA que edita", water:"20 m",
+  sp:[["8K","vídeo 360° a 50 fps"],["1/1,1\"","sensores dobles, los más grandes de la serie X"],["20 m","sumergible sin carcasa"],["IA","PanoMind te monta el vídeo solo"]],
+  si:"Quieres lo mejor en 360, grabas mucho de noche y no quieres pasarte horas editando.", no:"Te importa más el precio → la X5 está a 519 € y es una bestia."},
+ {id:"luna-ultra", slug:"luna-series", n:"Luna Ultra", lab:"05 · VLOG · EL CREADOR", type:"Vlog", tl:"Cámara con estabilizador de bolsillo y doble lente Leica. Cine en la mano.", tag:"NUEVA", pk:"Paquete estándar", p:689, old:"729 €", ah:40, best:"Gimbal · doble lente Leica", water:"—",
+  sp:[["1\"","sensor principal Leica f/1.8"],["8K","a 30 fps · 4K a 120 fps"],["Tele","2.ª lente 60 mm, hasta 12× zoom"],["3 ejes","gimbal + pantalla OLED extraíble"]],
+  si:"Hablas a cámara, haces vlogs o contenido de día a día y quieres imagen de cámara grande.", no:"Vas a mojarla o hacer deporte duro → mejor una Ace o una X."}
+];
+const byId = Object.fromEntries(CAMS.map(c => [c.id, c]));
+
+const QS = [
+ {q:"¿Qué tipo de creador eres?", o:[
+  ["A","El de acción","Playa, surf, buceo, bici, moto, nieve… La cámara va pegada al casco o en la mano y se moja.",{"ace-pro":2,"ace-pro-2":3}],
+  ["B","El que lo quiere grabar TODO","Viajo y quiero salir yo y el paisaje, sin pedirle a nadie que me grabe. Tomas tipo dron.",{"x5":3,"x6":2}],
+  ["C","El que habla a cámara","Hago vlogs, cuento mi día y quiero imagen de cine sin cargar con una cámara grande.",{"luna-ultra":5}]]},
+ {q:"¿Vas por presupuesto?", o:[
+  ["1","Menos de 200 €","Lo justo para empezar.",{"ace-pro":3}],
+  ["2","De 300 a 520 €","Calidad top sin pasarme.",{"ace-pro-2":2,"x5":2}],
+  ["3","Lo mejor de lo mejor","Quiero lo último.",{"x6":2,"luna-ultra":2}]]},
+ {q:"¿Qué es lo que más te importa?", o:[
+  ["1","Gastar lo menos posible","Que cumpla y ya.",{"ace-pro":2,"x5":1}],
+  ["2","La mejor imagen, también de noche","Que se vea de cine.",{"ace-pro-2":1,"x6":2,"luna-ultra":1}],
+  ["3","Que la IA me edite el vídeo","Grabar y listo.",{"x6":2,"x5":1}],
+  ["4","Que aguante agua y golpes","Va a sufrir.",{"ace-pro-2":2,"ace-pro":1,"x5":1}]]}
+];
+const ORDER = ["x5","ace-pro-2","x6","ace-pro","luna-ultra"];
+
+/* hero cards */
+document.getElementById('stack').innerHTML = ["ace-pro","luna-ultra","x6","ace-pro-2","x5"].map(id => `<img src="img/${id}.jpg" alt="">`).join('');
+
+/* sheets */
+const codeBox = `<div class="code"><div class="grow"><small>Mi código para el regalo</small><b>${CODE}</b></div><button class="cp" type="button">Copiar</button></div>`;
+document.getElementById('sheets').innerHTML = CAMS.map(c => `
+ <article class="sheet band" id="${c.id}">
+  <p class="eb">${c.lab}</p>
+  <h3 class="d nm"><small>Insta360</small>${c.n}</h3>
+  <p class="tl">${c.tl}</p>
+  <div class="sh">
+   <img src="img/${c.id}.jpg" alt="Insta360 ${c.n} con su regalo de Black Friday" loading="lazy">
+   <div>
+    <span class="tag">${c.tag}</span>
+    <p class="pk">${c.pk}</p>
+    <p class="pl">PRECIO BLACK FRIDAY</p>
+    <div class="price">${c.p}<sup>€</sup></div>
+    <p class="old">${c.old}</p>
+    <span class="ah">Ahorras ${c.ah} €</span>
+   </div>
+  </div>
+  <div class="specs">${c.sp.map(s => `<div class="sp"><b>${s[0]}</b><span>${s[1]}</span></div>`).join('')}</div>
+  <div class="pick"><div class="si"><h4>ELÍGELA SI…</h4><p>${c.si}</p></div><div class="no"><h4>MEJOR OTRA SI…</h4><p>${c.no}</p></div></div>
+  <div class="buy"><a class="btn b1" href="${link(c.slug)}" target="_blank" rel="noopener">Comprar la ${c.n} con mi enlace</a>${codeBox}</div>
+  <p class="toast" aria-live="polite"></p>
+ </article>`).join('');
+
+/* table */
+document.getElementById('tb').innerHTML = CAMS.map(c => `<tr><td class="n"><a href="#${c.id}">${c.n}</a></td><td><span class="chip">${c.type}</span></td><td class="hideS">${c.best}</td><td class="w">${c.water}</td><td class="p"><b>${c.p} €</b><s>${c.old}</s></td></tr>`).join('');
+
+/* quiz */
+const q = document.getElementById('q'), arc = document.getElementById('arc'), deg = document.getElementById('deg');
+const C = 2*Math.PI*64; arc.style.strokeDasharray = C;
+let step = 0, ans = [];
+const ring = n => { arc.style.strokeDashoffset = C*(1-n/QS.length); deg.textContent = Math.round(n/QS.length*360) + '°'; };
+const renderQ = () => {
+  ring(step);
+  const Q = QS[step];
+  q.innerHTML = `<p class="qn">Pregunta ${step+1} de ${QS.length}</p><h3 class="d qt">${Q.q}</h3>
+   <div class="opts">${Q.o.map((o,j) => `<button class="opt" type="button" data-j="${j}"><span class="l">${o[0]}</span><span><strong>${o[1]}</strong><small>${o[2]}</small></span></button>`).join('')}</div>
+   <div class="qnav">${step ? '<button class="lnk" type="button" id="bk">← Anterior</button>' : '<span></span>'}<a class="lnk" href="#camaras">Prefiero ver las 5</a></div>`;
+  q.querySelectorAll('.opt').forEach(b => b.addEventListener('click', () => { ans[step] = +b.dataset.j; step++; step < QS.length ? renderQ() : result(); }));
+  const bk = document.getElementById('bk'); if (bk) bk.addEventListener('click', () => { step--; renderQ(); });
+};
+const result = () => {
+  ring(QS.length);
+  const s = {}; ORDER.forEach(k => s[k] = 0);
+  ans.forEach((a,i) => { const w = QS[i].o[a][3]; for (const k in w) s[k] += w[k]; });
+  const win = [...ORDER].sort((a,b) => s[b]-s[a] || ORDER.indexOf(a)-ORDER.indexOf(b))[0];
+  const c = byId[win];
+  q.innerHTML = `<p class="qn">Tu resultado</p>
+   <div class="res"><img src="img/${c.id}.jpg" alt="Insta360 ${c.n}">
+    <div><span class="tag">${c.tag}</span><h3 class="d qt" style="margin-bottom:6px">Insta360 ${c.n}</h3><p style="margin:0 0 6px;color:#d8d8de">${c.tl}</p>
+     <div class="price">${c.p}<sup>€</sup></div><p class="old">${c.old} · ahorras ${c.ah} €</p>
+     <div class="ctas" style="margin:0"><a class="btn b1" href="#${c.id}">Ver su ficha</a><a class="btn b2" href="${link(c.slug)}" target="_blank" rel="noopener">Comprar con mi enlace</a></div>
+    </div></div>
+   <div class="qnav"><button class="lnk" type="button" id="again">Repetir el test</button><span></span></div>`;
+  document.getElementById('again').addEventListener('click', () => { step = 0; ans = []; renderQ(); });
+};
+renderQ();
+
+/* copy */
+document.addEventListener('click', async e => {
+  const b = e.target.closest('.cp'); if (!b) return;
+  const par = b.closest('.code').parentElement;
+  const t = par.querySelector('.toast') || par.nextElementSibling;
+  try { await navigator.clipboard.writeText(CODE); b.textContent = '¡Copiado!'; if (t && t.classList.contains('toast')) t.textContent = 'Pégalo al pagar.'; }
+  catch(_) { if (t && t.classList.contains('toast')) t.textContent = 'No se pudo copiar. Apúntalo: ' + CODE; }
+  setTimeout(() => { b.textContent = 'Copiar'; }, 1800);
+});
+}
+</script>
+</body>
+</html>
